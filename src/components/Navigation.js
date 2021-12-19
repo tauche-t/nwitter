@@ -22,11 +22,12 @@ const Navigation = ({ userObj }) => {
       >
         {/* <Link to="/profile">{userObj?.displayName?.length ? `${userObj.displayName} 님의 Profile` : "Profile"}</Link> */}
         <Link to="/profile">
-          <span style={{ marginTop: 10 }}>
           <FontAwesomeIcon icon={faUser} color={"#04AAFF"} size="2x" />
-            {userObj.displayName
+          <span style={{ marginTop: 10 }}>
+            {/* {userObj.displayName
               ? `${userObj.displayName}님의 Profile`
-              : "Profile"}
+              : "Profile"} */}
+              {userObj?.displayName?.length ? `${userObj.displayName} 님의 Profile` : "Profile"}
           </span>
         </Link>
       </li>
