@@ -7,7 +7,8 @@ const Profile = ({ refreshUser, userObj }) => {
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
 
   const onLogOutClick = () => {
-    authService.signOut()
+    authService.signOut();
+    // refreshUser();
   };
 
   const getMyNweets = async () => {
@@ -39,13 +40,16 @@ const Profile = ({ refreshUser, userObj }) => {
   }
 
   return (
-    <>
-      <form onSubmit={onSubmit}>
-        <input value={newDisplayName} type="text" placeholder="Display name" onChange={onChange} />
-        <input type="submit" value="Update Profile" />
+    <div className="container">
+      <form onSubmit={onSubmit} className="profileForm">
+        <input value={newDisplayName} type="text" placeholder="Display name" onChange={onChange} className="formInput" />
+        <input type="submit" value="Update Profile" className="formBtn" style={{ marginTop: 10 }} />
       </form>
-      <button onClick={onLogOutClick}>Log Out</button>
-    </>
+      <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
+        Log Out
+      </span>
+      {/* <button onClick={onLogOutClick}>Log Out</button> */}
+    </div>
   );
 }
 
